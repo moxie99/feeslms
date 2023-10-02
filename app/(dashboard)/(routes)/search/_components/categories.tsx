@@ -11,21 +11,25 @@ import {
   FcSportsMode,
 } from 'react-icons/fc';
 import { IconType } from 'react-icons';
-
+import { GrAnalytics } from 'react-icons/gr';
+import { GiClothes } from 'react-icons/gi';
+import { SiCodesignal, SiNginxproxymanager } from 'react-icons/si';
 import { CategoryItem } from './category-item';
-
+import {RiSpeakFill} from "react-icons/ri";
+import {MdEngineering} from "react-icons/md"
+import {AiFillCamera} from "react-icons/ai"
 interface CategoriesProps {
   items: Category[];
 }
 
 const iconMap: Record<Category['name'], IconType> = {
-  Music: FcMusic,
-  Photography: FcOldTimeCamera,
-  Fitness: FcSportsMode,
-  Accounting: FcSalesPerformance,
-  'Computer Science': FcMultipleDevices,
-  Filming: FcFilmReel,
-  Engineering: FcEngineering,
+  'Data Analytics': GrAnalytics,
+  Photography: AiFillCamera,
+  'Fashion Designing': GiClothes,
+  Languages: RiSpeakFill,
+  'Software Engineering': MdEngineering,
+  'Graphics Designing': SiCodesignal,
+  'Product Management': SiNginxproxymanager,
 };
 
 export const Categories = ({ items }: CategoriesProps) => {
