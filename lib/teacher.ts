@@ -1,5 +1,5 @@
 export const isTeacher = (userId?: string | null) => {
-  return userId === process.env.NEXT_PUBLIC_TEACHER_IDT;
+  return userId === process.env.NEXT_PUBLIC_TEACHER_IDT || process.env.NEXT_PUBLIC_TEACHER_ID;
 };
 
 
