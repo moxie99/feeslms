@@ -12,6 +12,8 @@ const teacherSet = new Set([
   process.env.NEXT_PUBLIC_FAITHFUL,
   process.env.NEXT_PUBLIC_DEBORAH,
   process.env.NEXT_PUBLIC_VJW,
+  process.env.NEXT_PUBLIC_LEMUEL,
+  process.env.NEXT_PUBLIC_JERRY
 ]);
 export const isTeacher = (userId?: string | null | undefined) => {
   if (userId && typeof userId === 'string') {
