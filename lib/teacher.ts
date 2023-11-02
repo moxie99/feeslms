@@ -13,7 +13,15 @@ const teacherSet = new Set([
   process.env.NEXT_PUBLIC_DEBORAH,
   process.env.NEXT_PUBLIC_VJW,
   process.env.NEXT_PUBLIC_LEMUEL,
-  process.env.NEXT_PUBLIC_JERRY
+  process.env.NEXT_PUBLIC_JERRY,
+  process.env.NEXT_PUBLIC_PEACE,
+  process.env.NEXT_PUBLIC_KEHINDE,
+  process.env.NEXT_PUBLIC_NELSON,
+  process.env.NEXT_PUBLIC_EMMANUEL,
+  process.env.NEXT_PUBLIC_PRECIOUS_BABS,
+  process.env.NEXT_PUBLIC_BLESSING,
+  process.env.NEXT_PUBLIC_JOHN_KANU,
+  process.env.NEXT_PUBLIC_FEMI
 ]);
 export const isTeacher = (userId?: string | null | undefined) => {
   if (userId && typeof userId === 'string') {
