@@ -18,6 +18,8 @@ export const SearchInput = () => {
 
   const currentCategoryId = searchParams.get('categoryId');
 
+  
+
   useEffect(() => {
     const url = qs.stringifyUrl(
       {
