@@ -11,7 +11,7 @@ import { isTeacher } from '@/lib/teacher';
 import { SearchInput } from './search-input';
 
 export const NavbarRoutes = () => {
-  const { userId, email } = useAuth();
+  const { userId } = useAuth();
   const pathname = usePathname();
 
   const isTeacherPage = pathname?.startsWith('/teacher');
