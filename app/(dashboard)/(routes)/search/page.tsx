@@ -37,7 +37,6 @@ const SearchPage = async ({ searchParams }: SearchPageProps) => {
 
   function getCategoryFromEmail(email: string): string {
   const categoryName: string = email.split('@')[0].split('.')[1];
-  // Transform categoryName to human-readable format (e.g., "data-analysis" to "Data Analysis")
   const humanReadableCategory: string = categoryName
     .split('-')
     .map(word => word.charAt(0).toUpperCase() + word.slice(1))
@@ -56,15 +55,12 @@ function filterCategoriesByEmail(email: string): { id: string, name: string }[] 
 function filterCoursesByEmail(email: string): any[] {
   const category: string = getCategoryFromEmail(email);
   console.log(category, "[]999")
-  const filteredCourses: any[] = courses.filter(course => course.category.name === category);
+  const filteredCourses: any[] = courses.filter(course => course?.category?.name === category);
   return filteredCourses;
 }
 const email: string = user?.emailAddresses[0]?.emailAddress || ""
 const filteredCategory = (filterCategoriesByEmail(email));
 const filteredCourses = filterCoursesByEmail(email)
-console.log(filteredCourses, "=====!!!!+++++")
-
-
   return (
     <>
       <div className='px-6 pt-6 md:hidden md:mb-0 block'>
