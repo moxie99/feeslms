@@ -56,10 +56,16 @@ export const CourseProgressButton = ({
 
   const Icon = isCompleted ? XCircle : CheckCircle;
 
+
+  console.log(isCompleted, isLoading, '---===+++===');
+
+  if (!isCompleted) {
+    return <></>;
+  }
   return (
     <Button
       onClick={onClick}
-      disabled={isLoading}
+      disabled={isLoading && isCompleted}
       type='button'
       variant={isCompleted ? 'outline' : 'success'}
       className='w-full md:w-auto'

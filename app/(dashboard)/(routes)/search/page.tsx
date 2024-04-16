@@ -36,17 +36,15 @@ const SearchPage = async ({ searchParams }: SearchPageProps) => {
   });
 
   function getCategoryFromEmail(email: string): string {
-  const categoryName: string = email.split('@')[0].split('.')[1];
-  const humanReadableCategory: string = categoryName
-    .split('-')
-    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+  const categoryName: string = email.split('@')[0]?.split('.')[1];
+  const humanReadableCategory: string = categoryName?.split('-')?.map(word => word?.charAt(0).toUpperCase() + word?.slice(1))
     .join(' ');
   return humanReadableCategory;
 }
 
 function filterCategoriesByEmail(email: string): { id: string, name: string }[] {
   const category: string = getCategoryFromEmail(email);
-  const filteredCategories: { id: string, name: string }[] = categories.filter(cat => cat.name === category);
+  const filteredCategories: { id: string, name: string }[] = categories?.filter(cat => cat.name === category);
   return filteredCategories;
 }
 
@@ -55,7 +53,7 @@ function filterCategoriesByEmail(email: string): { id: string, name: string }[] 
 function filterCoursesByEmail(email: string): any[] {
   const category: string = getCategoryFromEmail(email);
   console.log(category, "[]999")
-  const filteredCourses: any[] = courses.filter(course => course?.category?.name === category);
+  const filteredCourses: any[] = courses?.filter(course => course?.category?.name === category);
   return filteredCourses;
 }
 const email: string = user?.emailAddresses[0]?.emailAddress || ""
