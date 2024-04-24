@@ -32,7 +32,6 @@ export const VideoPlayer = ({
   const [isReady, setIsReady] = useState(false);
   const router = useRouter();
   const confetti = useConfettiStore();
-
   const onEnd = async () => {
     try {
       if (completeOnEnd) {

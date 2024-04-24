@@ -57,8 +57,6 @@ export const CourseProgressButton = ({
   const Icon = isCompleted ? XCircle : CheckCircle;
 
 
-  console.log(isCompleted, isLoading, '---===+++===');
-
   if (!isCompleted) {
     return <></>;
   }
