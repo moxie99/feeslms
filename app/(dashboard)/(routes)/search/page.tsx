@@ -20,6 +20,7 @@ const SearchPage = async ({ searchParams }: SearchPageProps) => {
 
   const user = await currentUser()
 
+
   if (!userId) {
     return redirect('/');
   }
@@ -48,16 +49,15 @@ function filterCategoriesByEmail(email: string): { id: string, name: string }[] 
   return filteredCategories;
 }
 
-
+const email: string = user?.emailAddresses[0]?.emailAddress || ""
+const filteredCategory = (filterCategoriesByEmail(email));
 
 function filterCoursesByEmail(email: string): any[] {
   const category: string = getCategoryFromEmail(email);
-  console.log(category, "[]999")
-  const filteredCourses: any[] = courses?.filter(course => course?.category?.name === category);
+  const filteredCourses: any[] = courses?.filter(course => course?.category?.name === category || course?.categoryId ===  filteredCategory[0].id  );
   return filteredCourses;
 }
-const email: string = user?.emailAddresses[0]?.emailAddress || ""
-const filteredCategory = (filterCategoriesByEmail(email));
+
 const filteredCourses = filterCoursesByEmail(email)
   return (
     <>
