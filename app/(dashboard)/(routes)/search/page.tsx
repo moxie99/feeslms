@@ -49,12 +49,13 @@ const SearchPage = async ({ searchParams }: SearchPageProps) => {
   ): { id: string; name: string }[] {
     const category: string = getCategoryFromEmail(email);
     const filteredCategories: { id: string; name: string }[] =
-      categories?.filter((cat) => cat.name === category);
+      categories?.filter((cat) => cat.name.toLowerCase() === category.toLowerCase());
     return filteredCategories;
   }
 
   const email: string = user?.emailAddresses[0]?.emailAddress || '';
   const filteredCategory = filterCategoriesByEmail(email);
+  
 
   function filterCoursesByEmail(email: string): any[] {
     const category: string = getCategoryFromEmail(email);
@@ -66,8 +67,7 @@ const SearchPage = async ({ searchParams }: SearchPageProps) => {
     return filteredCourses;
   }
 
-  console.log(categories, '<<<categories>>>');
-
+ 
   const filteredCourses = filterCoursesByEmail(email);
   return (
     <>
