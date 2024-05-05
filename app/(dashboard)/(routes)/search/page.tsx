@@ -18,8 +18,7 @@ interface SearchPageProps {
 const SearchPage = async ({ searchParams }: SearchPageProps) => {
   const { userId } = auth();
 
-  const user = await currentUser()
-
+  const user = await currentUser();
 
   if (!userId) {
     return redirect('/');
@@ -37,28 +36,39 @@ const SearchPage = async ({ searchParams }: SearchPageProps) => {
   });
 
   function getCategoryFromEmail(email: string): string {
-  const categoryName: string = email.split('@')[0]?.split('.')[1];
-  const humanReadableCategory: string = categoryName?.split('-')?.map(word => word?.charAt(0).toUpperCase() + word?.slice(1))
-    .join(' ');
-  return humanReadableCategory;
-}
+    const categoryName: string = email.split('@')[0]?.split('.')[1];
+    const humanReadableCategory: string = categoryName
+      ?.split('-')
+      ?.map((word) => word?.charAt(0).toUpperCase() + word?.slice(1))
+      .join(' ');
+    return humanReadableCategory;
+  }
 
-function filterCategoriesByEmail(email: string): { id: string, name: string }[] {
-  const category: string = getCategoryFromEmail(email);
-  const filteredCategories: { id: string, name: string }[] = categories?.filter(cat => cat.name === category);
-  return filteredCategories;
-}
+  function filterCategoriesByEmail(
+    email: string
+  ): { id: string; name: string }[] {
+    const category: string = getCategoryFromEmail(email);
+    const filteredCategories: { id: string; name: string }[] =
+      categories?.filter((cat) => cat.name === category);
+    return filteredCategories;
+  }
 
-const email: string = user?.emailAddresses[0]?.emailAddress || ""
-const filteredCategory = (filterCategoriesByEmail(email));
+  const email: string = user?.emailAddresses[0]?.emailAddress || '';
+  const filteredCategory = filterCategoriesByEmail(email);
 
-function filterCoursesByEmail(email: string): any[] {
-  const category: string = getCategoryFromEmail(email);
-  const filteredCourses: any[] = courses?.filter(course => course?.category?.name === category || course?.categoryId ===  filteredCategory[0].id  );
-  return filteredCourses;
-}
+  function filterCoursesByEmail(email: string): any[] {
+    const category: string = getCategoryFromEmail(email);
+    const filteredCourses: any[] = courses?.filter(
+      (course) =>
+        course?.category?.name === category ||
+        course?.categoryId === filteredCategory[0]?.id
+    );
+    return filteredCourses;
+  }
 
-const filteredCourses = filterCoursesByEmail(email)
+  console.log(categories, '<<<categories>>>');
+
+  const filteredCourses = filterCoursesByEmail(email);
   return (
     <>
       <div className='px-6 pt-6 md:hidden md:mb-0 block'>
