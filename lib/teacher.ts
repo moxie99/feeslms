@@ -24,8 +24,9 @@ const teacherSet = new Set([
   process.env.NEXT_PUBLIC_FEMI
 ]);
 export const isTeacher = (userId?: string | null | undefined) => {
+  console.log(userId, '>>>>>>||||+++++++====');
   if (userId && typeof userId === 'string') {
-    return teacherSet.has(userId);
+    return userId.includes('facilitator');
   }
   return false;
 };

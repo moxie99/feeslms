@@ -23,7 +23,9 @@ const SearchPage = async ({ searchParams }: SearchPageProps) => {
   if (!userId) {
     return redirect('/');
   }
-
+  if (user) {
+    localStorage.setItem('user', JSON.stringify(user));
+  }
   const categories = await db.category.findMany({
     orderBy: {
       name: 'asc',
