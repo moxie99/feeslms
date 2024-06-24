@@ -57,7 +57,6 @@ export const getDashboardCourses = async (
       coursesInProgress,
     };
   } catch (error) {
-    console.log('[GET_DASHBOARD_COURSES]', error);
     return {
       completedCourses: [],
       coursesInProgress: [],

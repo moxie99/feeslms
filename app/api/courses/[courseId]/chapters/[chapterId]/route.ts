@@ -85,7 +85,6 @@ export async function DELETE(
 
     return NextResponse.json(deletedChapter);
   } catch (error) {
-    console.log('[CHAPTER_ID_DELETE]', error);
     return new NextResponse('Internal Error', { status: 500 });
   }
 }
@@ -156,7 +155,6 @@ export async function PATCH(
 
     return NextResponse.json(chapter);
   } catch (error) {
-    console.log('[COURSES_CHAPTER_ID]', error);
     return new NextResponse('Internal Error', { status: 500 });
   }
 }

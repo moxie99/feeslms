@@ -23,9 +23,6 @@ const SearchPage = async ({ searchParams }: SearchPageProps) => {
   if (!userId) {
     return redirect('/');
   }
-  if (user) {
-    localStorage.setItem('user', JSON.stringify(user));
-  }
   const categories = await db.category.findMany({
     orderBy: {
       name: 'asc',
@@ -51,7 +48,7 @@ const SearchPage = async ({ searchParams }: SearchPageProps) => {
   ): { id: string; name: string }[] {
     const category: string = getCategoryFromEmail(email);
     const filteredCategories: { id: string; name: string }[] =
-      categories?.filter((cat) => cat.name.toLowerCase() === category.toLowerCase());
+      categories?.filter((cat) => cat.name.toLowerCase() === category?.toLowerCase());
     return filteredCategories;
   }
 
