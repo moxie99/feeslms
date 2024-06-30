@@ -7,8 +7,10 @@ const f = createUploadthing();
 
 const handleAuth = async () => {
   const { userId } = auth();
+
+
   const user = await currentUser();
-  const isAuthorized = isTeacher(user?.emailAddresses[0].emailAddress);
+  const isAuthorized = isTeacher(user?.emailAddresses[0].emailAddress, userId);
 
   if (!userId || !isAuthorized) throw new Error('Unauthorized');
   return { userId };

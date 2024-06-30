@@ -23,9 +23,14 @@ const teacherSet = new Set([
   process.env.NEXT_PUBLIC_JOHN_KANU,
   process.env.NEXT_PUBLIC_FEMI
 ]);
-export const isTeacher = (userId?: string | null | undefined) => {
+
+const emmyId = process.env.NEXT_PUBLIC_EMMY;
+export const isTeacher = (
+  userId?: string | null | undefined,
+  id?: string | null | undefined
+) => {
   if (userId && typeof userId === 'string') {
-    return userId.includes('facilitator');
+    return userId.includes('facilitator') || id === emmyId;
   }
   return false;
 };

@@ -19,6 +19,7 @@ export const NavbarRoutes = ({ email }: NavbarRoutesProps) => {
 
   const pathname = usePathname();
 
+  
   const isTeacherPage = pathname?.startsWith('/teacher');
   const isCoursePage = pathname?.includes('/courses');
   const isSearchPage = pathname === '/search';
@@ -38,7 +39,7 @@ export const NavbarRoutes = ({ email }: NavbarRoutesProps) => {
               Back
             </Button>
           </Link>
-        ) : isTeacher(email) ? (
+        ) : isTeacher(email, userId) ? (
           <Link href='/teacher/courses'>
             <Button>Create Course(s)</Button>
           </Link>

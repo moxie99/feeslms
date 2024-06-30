@@ -10,7 +10,9 @@ export async function POST(req: Request) {
     const user = await currentUser();
     const { title } = await req.json();
 
-    if (!userId || !isTeacher(user?.emailAddresses[0].emailAddress)) {
+   
+
+    if (!userId || !isTeacher(user?.emailAddresses[0].emailAddress, userId)) {
       return new NextResponse('Unauthorized', { status: 401 });
     }
 
